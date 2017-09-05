@@ -34,7 +34,7 @@ describe "Accessing a page in the application" do
       page.should_not have_content('Title One')
       page.should_not have_content('Title Two')
 
-      page.should have_content('Please enter the code word to continue…')
+      page.should have_content('Please enter password.')
     end
 
     it "allows access to the requested page when the correct code word is supplied" do
@@ -76,7 +76,7 @@ describe "Accessing a page in the application" do
     it "rejects direct access with an invalid code in the URL" do
       visit '/posts?lookup_codeword=lolwut'
 
-      page.should have_content('Please enter the code word to continue…')
+      page.should have_content('Please enter password.')
 
       current_path.should_not start_with('/posts')
 
